@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block main %}
+   <section class="vh-100">
+      <div class="container h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-0 col-lg-5 col-xl-6">
+            <img src="static/contact.svg/" alt="" class="w-45 img-cover" >
+          </div>
+          <div class="col-md-5 col-lg-5 col-xl-5 offset-xl-1" id="box">
+            <br> <br>
+            <p class="text-center h1 fw-bold mt-15 mb-5 mx-1 mx-md-4 mt-4" style="color:white;">Contact US</p>
+  
+   <form action="{{ url_for('contact') }}" method="post">
+        
+            {% if session.user_id %}
+            <input type="text" value="{{session.username}}" class="form-control" placeholder="Enter Username"
+               name=username>
+            {% else %}
+            <input type="text" class="form-control" placeholder="Enter Username" name=username>
+            {% endif %}
+
+
+         <div class="pt-3">
+            <input type="text" class="form-control" placeholder="Enter First name" name="f_name">
+         </div>
+         <div class="pt-3">
+            <input type="text" class="form-control" placeholder="Enter Last name" name="l_name">
+         </div>
+      
+         <div class="pt-3">
+            <input type="text" class="form-control" placeholder="An existing user" name="user">
+      <div>
+         <div class="pt-3">
+            <input type="text" class="form-control" placeholder="Would you recommend MentaLify to your friends?" name="user">
+      <div>
+      <div >
+         <p style="color:white">Would you like to give any comments or suggestions to US?</p>
+         <textarea name="text" type='text' style="margin-left: 8px !important; margin-bottom: 2px !important;"
+            placeholder='Enter your comment here...'></textarea>
+      </div>
+      <div class="pt-2">
+         <button class="btn  btn-light " type="submit">SUBMIT</button>
+      </div>
+   </form>
+</div>
+</div>
+</section>
+
+{% endblock %}
