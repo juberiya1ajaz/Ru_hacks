@@ -16,6 +16,9 @@ footer {
 .a1:hover {
     text-decoration: underline;
   }
+  .nav-link {
+    color: white !important;
+  }
 main
 {
     /* Scroll horizontally as needed */
@@ -25,8 +28,6 @@ main
     text-align: center;
 }
 .text{font-size: 25px !important;}
-
-a{color: rgb(32, 32, 32);}
 body
 {
     font-size: 15px;
@@ -72,6 +73,9 @@ border-radius:5px
   .div1{
     max-width: 100%;
   }
+}
+.btn{
+  color: white !important;
 }
 
 /* BEGIN CARD DESIGN */
@@ -150,3 +154,42 @@ border-radius:5px
   bottom: 10%;
 }
 /* END CARD DESIGN */
+.jumbotron
+{
+   background-color:rgb(251, 171, 183);
+   margin: 15px;
+   padding: 20px;
+   font-family:Arial, Helvetica, sans-serif;
+   text-align: left !important;
+}
+
+.w3-animate-right
+{
+   animation-duration: 4s !important;
+}
+h3{text-align: left;
+color: whitesmoke !important}
+.about{font-size: 26px ;
+  color: whitesmoke}
+
+  /*CARD*/
+  .card
+  {
+    padding:20px;
+    background-color: #f99fac;
+  }
+  .card-title
+  {
+    font-weight: bold;
+    font-style: italic;
+  }
+  .card-text,.card
+  {
+    color: rgb(255, 255, 255,0.9);
+  }
+  
+  .b1{
+    background-color:#f99fac;
+    color:white
+  }
+
