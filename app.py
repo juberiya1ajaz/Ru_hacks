@@ -1,3 +1,4 @@
+from urllib import response
 from flask  import Flask , redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -5,12 +6,13 @@ from tempfile import mkdtemp
 from cs50 import SQL
 from flask_sqlalchemy import SQLAlchemy
 from helper import apology
+import requests
+import constants
 
 # Configure application
 app = Flask(__name__)
 
 # Ensure responses aren't cached
-
 @app.after_request
 def after_request(response):
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
@@ -25,7 +27,7 @@ Session(app)
 db = SQL("sqlite:///users.db")
 
 @app.route('/')
-def index():    
+def index():
     return render_template("index.html")
 
 
@@ -61,7 +63,7 @@ def login():
     else:
         return render_template("login.html")
        
-@app.route("/logout")
+@app.route("/logout/")
 def logout():
     """Log user out"""
 
@@ -69,9 +71,9 @@ def logout():
     session.clear()
 
     # Redirect user to login form
-    return redirect("/")      
+    return redirect("/login/")      
     
-@app.route("/contact", methods=["GET", "POST"])
+@app.route("/contact/", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
         first_name= request.form.get("f_name")
@@ -101,7 +103,7 @@ def contact():
 
 
     
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register/", methods=["GET", "POST"])
 def register():
     """Register user"""
     if request.method == "POST":
@@ -114,12 +116,10 @@ def register():
             return apology("must provide username",400)
         elif not password or not  c_password :
             return apology("must provide password" ,400)
-        
-           
        
         #MAKE SURE BOTH PASSWORD MATCH
         elif  password !=  c_password:
-            return apology("both password  must match", 400)
+            return apology("both password must match", 400)
 
     
         rows = db.execute("SELECT * FROM users WHERE username = :username", username=request.form.get("username"))
@@ -142,7 +142,7 @@ def register():
     else:
         return render_template("register.html")
 
-@app.route("/delete" , methods=["GET", "POST"])
+@app.route("/delete/" , methods=["GET", "POST"])
 def delete():
     if request.method == "POST":
         user_id=session["user_id"]
@@ -167,6 +167,31 @@ def delete():
         return redirect("/")
     else:
         return render_template("delete.html")
+
+@app.route("/category/anime/")
+def get_anime():
+    if not session.get("user_id"):
+        return redirect("/")
+    
+    response = requests.get(constants.ANIME_LIST_API).json()
+    return render_template("category.html", typ="anime", resp=response, n=5)
+
+@app.route("/category/songs/")
+def get_songs():
+    if not session.get("user_id"):
+        return redirect("/")
+
+    response = requests.request("GET", constants.MUSIC_LIST_API, headers=constants.MUSIC_LIST_API_HEADER, params=constants.MUSIC_LIST_API_QUERY).json()
+    print(response)
+    return render_template("category.html", typ="song",resp=response,n=len(response['tracks']['hits']))
+
+@app.route("/category/books/")
+def get_books():
+    if not session.get("user_id"):
+        return redirect("/")
+
+    response = requests.get(constants.BOOKS_API).json()
+    return render_template("category.html", typ="book", resp=response['items'], n=min(response['totalItems'], 10))
 
 if __name__=="__main__":
     app.run(debug=True)
