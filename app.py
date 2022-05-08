@@ -174,7 +174,7 @@ def get_anime():
         return redirect("/")
     
     response = requests.get(constants.ANIME_LIST_API).json()
-    return render_template("category.html", typ="anime", resp=response, n=5)
+    return render_template("category.html", typ="anime", teresp=response, n=5)
 
 @app.route("/category/songs/")
 def get_songs():
