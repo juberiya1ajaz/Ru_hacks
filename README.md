@@ -16,13 +16,14 @@ We built the app primarily on Flask - a Python web micro framework that helps us
 Hopefully, through your support, we can push this app to a lot more people who are just looking for new and interesting things to do during this pandemic, while handling the real issues that lie in mental health.
 
 ## Built With
-api
-bootstrap
-css3
-faviconz
-flask
-html5
-javascript
-python
-scss
-sqlite
+<ul>
+<li>api
+<li>bootstrap
+<li>css3
+<li>faviconz
+<li>flask
+<li>html5
+<li>javascript
+<li>python
+<li>scss
+<li>sqlite
