@@ -5,6 +5,15 @@ delete
 {% endblock %}
 
 {% block main %}
+<section class="vh-100">
+    <div class="container h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-0 col-lg-5 col-xl-6">
+          <img src="/static/delete.svg/" alt="" class="w-55 img-cover" >
+        </div>
+        <div class="col-md-5 col-lg-5 col-xl-5 offset-xl-1" id="box">
+ <br><br> <br> <br><br>
+          <p class="text-center h1 fw-bold mt-15 mb-5 mx-1 mx-md-4 mt-4" style="color:white;">Sign Up</p>
 <form action="{{ url_for('delete') }}" method="POST">
 
     
@@ -20,5 +29,8 @@ delete
             Deletion</button>
  
 </form>
+</div>
+</div>
+</section>
 
 {% endblock %}

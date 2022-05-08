@@ -5,67 +5,49 @@ home
 
 {% block main %}
 {% if session.user_id %}
-<div class="container">
-  <div class="row m-4">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"> Menstruation</h5>
-          <p class="card-text">What happens with body during menstruation</p>
-          <a href="https://www.healthline.com/health/womens-health/stages-of-menstrual-cycle" class="btn b1">Click Here</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Menstrual Health</h5>
-          <p class="card-text"> how to maintain your Menstrual health</p>
-          <a href="https://www.healthline.com/health/facts-statistics-menstruation" class="btn b1">Click Here</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row m-4">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">How menstrual Cycle works?</h5>
-          <p class="card-text">Want to know How your body natural cycle works</p>
-          <a href="https://www.nhs.uk/conditions/periods/fertility-in-the-menstrual-cycle/#:~:text=The%20egg%20travels%20down%20the,around%2010%20to%2016%20days." class="btn b1">Click Here</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Conversion of cotton clothes to pad </h5>
-          <p class="card-text"> How cotton clothes can be converted into Pads</p>
-          <a href="https://timesofindia.indiatimes.com/most-searched-products/health-and-fitness/health-care/reusable-sanitary-pads-cotton-and-fibre-pads-for-eco-friendly-periods/articleshow/77607526.cms" class="btn b1">Click Here</a>
-        </div>
-      </div>
+<section>
+  <div class="w3-container w3-center w3-animate-right" id="about">
+    <div class="jumbotron  rounded">
+     
+            <div class="md-6 px-0">
+              
+                    <h3 class="display-4" style="font-style:italic;">About  Us </h3>
+                    <h3 class="display-4" style="font-style:italic;">Hello Welcome to MentaLify</h3>
+                    <br>
+                    <img src="/static/homepage.svg/" alt="" class="w-50 img-cover">
+                    <p class="about">
+                      <br>
+                      We at MentaLify aim to bring happiness to the users.
+                      AT MentaLify You can check various news and read journals about mental health and the best part you have the wide variety of options that ranges from animes , series and songs that can lighten you up at any momentt
+                      <br>
+                      So today, become a Member and make great choices with us.
+                      </p>
+            </div>
     </div>
   </div>
-  <div class="row m-4">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Goonj Foundation</h5>
-          <p class="card-text">Get to know about their Just a Piece of Cloth scheme </p>
-          <a href="https://goonj.org/the-journey-from-just-a-piece-of-cloth-to-my-pad/" class="btn b1">Click Here</a>
+  </section>
+ 
+  <div class="container">
+    <div class="row m-4">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> Mental Health</h5>
+            <p class="card-text">What is mental health?</p>
+            <a href="https://www.healthline.com/mental-health?msclkid=897a9a8bcec211ecb4c342cbff5115e6" class="btn b1">Click Here</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Taking care</h5>
+            <p class="card-text"> how can you take care of your Mental Health</p>
+            <a href="https://www.mhanational.org/taking-good-care-yourself?msclkid=a00c2e46cec211ec85565df1f7275e1e" class="btn b1">Click Here</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Government schemes</h5>
-          <p class="card-text">Government schemes on menstruation health and hygiene </p>
-          <a href="https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=1021&lid=391" class="btn b1">Click Here</a>
-        </div>
-      </div>
-    </div>
-  </div>
   </div>
 
 {% else %}
@@ -86,7 +68,7 @@ home
       </div>
   </div>
   </section>
-
+{% endif %}
 <section>
   <div class="container">
     <div class="row justify-content-md-around justify-content-center align-items-center">
@@ -103,8 +85,43 @@ home
     </div>
 </div>
 </section>
+</div>
+{% if session.user_id %}
+<div class="deck">
+  <div class="header">
+    <h>MentaLify, Best services</h>
+    <h>Powered by Technology</h>
+    <p>Our Webiste  powered tools let you search anime movies songs that can make you feel good. </p>
+  </div>
+  <div class="row1-container">
+    <div class="box box-down cyan">
+      <h4>Latest news</h4>
+      <p>Learn facts and news about mental health</p>
+      <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
+    </div>
   
+    <div class="box red">
+      <h4>MentaLify Music</h4>
+      <p>Listen to the good-feel and motivating songs</p>
+      <img src="https://i.postimg.cc/YSTbqvRT/icons8-marching-tenor-drums-48.png" alt="">
+    </div>
+  
+    <div class="box box-down blue">
+      <h4>  MentaLify Series and animes</h4>
+      <p>Search from vast range of series an dgood-feel animes</p>
+      <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
+    </div>
+  </div>
+  <div class="row2-container">
+    <div class="box orange">
+      <h4>Best Services</h4>
+      <p>Regularly evaluates our talent to ensure quality</p>
+      <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
+    </div>
+  </div>
+  </div>
+
 {% endif %}
 
-</div>
 {% endblock %}
+
