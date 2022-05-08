@@ -63,7 +63,7 @@ def login():
     else:
         return render_template("login.html")
        
-@app.route("/logout/")
+@app.route("/logout")
 def logout():
     """Log user out"""
 
@@ -71,9 +71,9 @@ def logout():
     session.clear()
 
     # Redirect user to login form
-    return redirect("/login/")      
+    return redirect("/login")      
     
-@app.route("/contact/", methods=["GET", "POST"])
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
         first_name= request.form.get("f_name")
@@ -103,7 +103,7 @@ def contact():
 
 
     
-@app.route("/register/", methods=["GET", "POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
     if request.method == "POST":
@@ -142,7 +142,7 @@ def register():
     else:
         return render_template("register.html")
 
-@app.route("/delete/" , methods=["GET", "POST"])
+@app.route("/delete" , methods=["GET", "POST"])
 def delete():
     if request.method == "POST":
         user_id=session["user_id"]
