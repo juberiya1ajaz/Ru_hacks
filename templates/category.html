@@ -1,0 +1,73 @@
+<!-- HTML and SCSS components obtained from https://codepen.io/FlorinCornea/pen/KKwMeqd  -->
+<!-- See /static/styles.css -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Browse Titles
+{% endblock %}
+
+{% block main %}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+{% if typ == "song" %}
+    {% for i in range(n) %}
+    <div class="first hero">
+        <img class="hero-profile-img" src="{{ resp['tracks']['hits'][i]['track']['images']['coverart'] }}" alt="">
+        <div class="hero-description-bk"></div>
+        <div class="hero-logo">
+        <img src="{{ resp['tracks']['hits'][i]['track']['images']['background'] }}" alt="">
+        </div>
+        <div class="hero-description">
+        <p>{{ resp['tracks']['hits'][i]['track']['title'] }} </p>
+        </div>
+        <div  class="hero-date">
+        <p>{{ resp['tracks']['hits'][i]['track']['subtitle'] }}</p>
+        </div>
+        <div class="hero-btn">
+        <a href="{{ resp['tracks']['hits'][i]['track']['url'] }}">Visit</a>
+        </div>
+    </div>
+    {% endfor %}
+{% elif typ == "anime" %}
+    {% for i in range(n) %}
+    <div class="first hero">
+        <img class="hero-profile-img" src="{{ resp['data'][i]['images']['jpg']['large_image_url'] }}" alt="">
+        <div class="hero-description-bk"></div>
+        <div class="hero-logo">
+        <img src="{{ resp['data'][i]['images']['jpg']['small_image_url'] }}" alt="">
+        </div>
+        <div class="hero-description">
+        <p>{{ resp['data'][i]['title_english'] }} </p>
+        </div>
+        <div  class="hero-date">
+        <p>Rating: {{ resp['data'][i]['score'] }}/10</p>
+        </div>
+        <div class="hero-btn">
+        <a href="resp['data'][i]['url']">Trailer</a>
+        </div>
+    </div>
+    {% endfor %}
+{% elif typ == "book" %}
+    {% for i in range(n) %}
+    <div class="first hero">
+        <img class="hero-profile-img" src="{{ resp[i]['volumeInfo']['imageLinks']['thumbnail'] }}" alt="">
+        <div class="hero-description-bk"></div>
+        <div class="hero-logo">
+        <img src="{{ resp[i]['volumeInfo']['imageLinks']['smallThumbnail'] }}" alt="">
+        </div>
+        <div class="hero-description">
+        <p style="color: azure;">{{ resp[i]['volumeInfo']['title'] }} </p>
+        </div>
+        <div  class="hero-date">
+        <p>By {{ ", ".join(resp[i]['volumeInfo']['authors']) }}</p>
+        </div>
+        <div class="hero-btn">
+        <a href="{{ resp[i]['volumeInfo']['previewLink'] }}">Preview</a>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
+
+
+{% endblock %}
